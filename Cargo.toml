@@ -3,3 +3,6 @@ name = "golemcli"
 version = "0.1.0"
 authors = ["Golem Project", "maaktweluit"]
 description = "golemcli clone written in Rust"
+
+[dependencies]
+clap = "2.26.0"

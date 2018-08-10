@@ -17,7 +17,7 @@ cargo build
   - [x] README
   - [ ] github
 - [ ] golemcli features
-  - [ ] arguments
+  - [x] arguments
   - [ ] websocket call
   - [ ] command splitting
     - [ ] help
