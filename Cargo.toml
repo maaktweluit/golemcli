@@ -6,3 +6,5 @@ description = "golemcli clone written in Rust"
 
 [dependencies]
 clap = "2.26.0"
+log = "*"
+env_logger = "*"
