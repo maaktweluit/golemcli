@@ -18,11 +18,12 @@ cargo build
   - [ ] github
 - [ ] golemcli features
   - [x] arguments
-  - [ ] websocket call
+  - [x] websocket call
   - [ ] command splitting
     - [ ] help
     - [ ] map to rpc call names
   - [ ] interactive mode
+  - [ ] use `verify_ssl` argument
 - [ ] tests
   - [ ] unit test
   - [ ] integration test

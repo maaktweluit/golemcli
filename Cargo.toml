@@ -5,6 +5,9 @@ authors = ["Golem Project", "maaktweluit"]
 description = "golemcli clone written in Rust"
 
 [dependencies]
-clap = "2.26.0"
+clap = "*"
+wampire = { git = "https://github.com/maaktweluit/wampire", branch = "mwu/ssl-no-verify", features = ["ssl"] }
 log = "*"
 env_logger = "*"
+eventual = "*"
+prettytable-rs = "^0.7"
