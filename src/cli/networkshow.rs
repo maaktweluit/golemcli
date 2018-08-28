@@ -2,29 +2,6 @@ use eventual::Async;
 use wampire::{URI, Value, Client};
 use wampire::ArgDict;
 
-pub fn listen_and_fire(mut session:Client, interactive:bool, command:String) {
-    debug!("listen_and_fire({}, {}, {})", "session", interactive, command);
-    if interactive {
-        debug!("Starting interactive mode");
-    }
-    
-    //set_password()
-    network_show(&mut session);
-    let s_res = session.shutdown().unwrap();
-    debug!("shutdown_res: {:?}", s_res);
-
-    //debug!("Result: {}", cli)
-}
-
-fn set_passwor(session:&mut Client) {
-    let uri = URI::new("golem.password.set");
-
-    let args = Some(vec![Value::String("a".to_string())]);
-    
-    let result = session.call(uri, args, None).unwrap();
-    debug!("Result: {:?}", result);
-}
-
 /*
 #[derive(Serialize, Deserialize, Debug)]
 struct NetworkShowNode {
@@ -35,7 +12,8 @@ struct NetworkShowNode {
     pub_port: u32,
 }
 */
-fn network_show(session:&mut Client) {
+
+pub fn network_show(session:&mut Client) {
     let uri = URI::new("network.show");
 
     let result = session.call(uri, None, None).unwrap().await().unwrap();

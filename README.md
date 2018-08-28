@@ -24,6 +24,7 @@ cargo build
     - [ ] map to rpc call names
   - [ ] interactive mode
   - [ ] use `verify_ssl` argument
+  - [ ] mask password https://crates.io/crates/rpassword
 - [ ] tests
   - [ ] unit test
   - [ ] integration test
