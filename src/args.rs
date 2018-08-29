@@ -8,6 +8,7 @@ const DESCRIPTION: &'static str = env!("CARGO_PKG_DESCRIPTION");
 const DEFAULT_ADDRES: &'static str = "127.0.0.1";
 const DEFAULT_PORT: &'static str = "61000";
 
+#[derive(Debug)]
 pub struct Args {
     pub interactive: bool,
     pub addres: String,
