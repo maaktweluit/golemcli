@@ -34,3 +34,6 @@ cargo build
   - [ ] appveyor
   - [ ] travis
   - [ ] codecov
+  - [ ] build user docs
+  - [ ] deploy user docs
+  - [ ] deploy binaries on tag
