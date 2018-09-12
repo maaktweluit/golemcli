@@ -1,6 +1,6 @@
 use eventual::Async;
-use wampire::{URI, Value, Client, Dict};
 use wampire::ArgDict;
+use wampire::{Client, Dict, Value, URI};
 
 #[derive(Debug)]
 struct NetworkShowNode {
@@ -12,26 +12,32 @@ struct NetworkShowNode {
 }
 
 impl NetworkShowNode {
-    fn from_dict(ref dict :&Dict) -> NetworkShowNode {
+    fn from_dict(ref dict: &Dict) -> NetworkShowNode {
         let node_name = dict.get_string("node_name").unwrap().unwrap().to_string();
         let node_id = dict.get_string("node_id").unwrap().unwrap().to_string();
         let version = dict.get_string("version").unwrap().unwrap().to_string();
         let pub_ip = dict.get_string("pub_ip").unwrap().unwrap().to_string();
         let pub_port = dict.get_uint("pub_port").unwrap().unwrap();
 
-        NetworkShowNode{ node_name, node_id, version, pub_ip, pub_port }
+        NetworkShowNode {
+            node_name,
+            node_id,
+            version,
+            pub_ip,
+            pub_port,
+        }
     }
 
     fn get_short_node_id(&self) -> String {
         let first = &self.node_id[..8];
         let len = self.node_id.len();
         let mid = &"..".to_string();
-        let last  = &self.node_id[len-8..];
+        let last = &self.node_id[len - 8..];
         [first, mid, last].concat()
     }
 }
 
-pub fn network_show(session:&mut Client) {
+pub fn network_show(session: &mut Client) {
     let uri = URI::new("network.show");
 
     let result = session.call(uri, None, None).unwrap().await().unwrap();
@@ -56,11 +62,13 @@ pub fn network_show(session:&mut Client) {
                     row_node.node_name,
                     row_node.version,
                 ));
+            } else {
+                error!("Failed to read return data, no dict")
             }
-            else { error!("Failed to read return data, no dict") }
-        }        
+        }
+    } else {
+        error!("Failed to read return data, no list")
     }
-    else { error!("Failed to read return data, no list") }
     table.printstd();
     //debug!("Result: {:?}", result);
 }

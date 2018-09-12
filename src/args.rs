@@ -1,4 +1,4 @@
-use clap::{Arg, App, ArgMatches};
+use clap::{App, Arg, ArgMatches};
 
 const NAME: &'static str = env!("CARGO_PKG_NAME");
 const VERSION: &'static str = env!("CARGO_PKG_VERSION");
@@ -14,7 +14,7 @@ pub struct Args {
     pub addres: String,
     pub port: String,
     pub verify_trust: bool,
-    pub command: String
+    pub command: String,
 }
 
 pub fn parse_args() -> Args {
@@ -34,12 +34,21 @@ pub fn parse_args() -> Args {
     return matches_to_args(matches);
 }
 
-fn matches_to_args(matches:ArgMatches) -> Args {
-    let interactive = matches.is_present("interactive"); 
-    let addres = matches.value_of("addres").unwrap_or(DEFAULT_ADDRES).to_string();
+fn matches_to_args(matches: ArgMatches) -> Args {
+    let interactive = matches.is_present("interactive");
+    let addres = matches
+        .value_of("addres")
+        .unwrap_or(DEFAULT_ADDRES)
+        .to_string();
     let port = matches.value_of("port").unwrap_or(DEFAULT_PORT).to_string();
     let verify_trust = matches.is_present("verify-trust");
     let command = matches.value_of("command").unwrap_or("").to_string();
 
-    return Args{interactive, addres, port, verify_trust, command};
+    return Args {
+        interactive,
+        addres,
+        port,
+        verify_trust,
+        command,
+    };
 }
