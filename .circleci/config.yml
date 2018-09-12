@@ -24,12 +24,12 @@ jobs:
             rustup component add rustfmt-preview
             rustfmt --version
             cargo fmt -- --check
-      - run:
-          name: Nightly Build
-          command: |
-            rustup run nightly rustc --version --verbose
-            rustup run nightly cargo --version --verbose
-            rustup run nightly cargo build
+#      - run:
+#          name: Nightly Build
+#          command: |
+#            rustup run nightly rustc --version --verbose
+#            rustup run nightly cargo --version --verbose
+#            rustup run nightly cargo build
       - run:
           name: Stable Build
           command: |
