@@ -19,7 +19,6 @@ jobs:
       - run:
           name: Check formatting
           command: |
-            rustup component add rustfmt-preview
             rustfmt --version
             cargo fmt -- --check
       - run:
