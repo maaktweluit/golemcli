@@ -15,7 +15,7 @@ cargo build
 ## TODO:
 - [ ] project basics
   - [x] README
-  - [ ] github
+  - [x] github
 - [ ] golemcli features
   - [x] arguments
   - [x] websocket call
@@ -30,7 +30,7 @@ cargo build
   - [ ] integration test
   - [ ] coverage report
 - [ ] ci
-  - [ ] circle
+  - [x] circle
   - [ ] appveyor
   - [ ] travis
   - [ ] codecov
