@@ -1,15 +1,15 @@
 use std::io;
 
 use eventual::Async;
-use wampire::{URI, Value, Client};
+use wampire::{Client, Value, URI};
 
-pub  fn set_password(session:&mut Client) {
+pub fn set_password(session: &mut Client) {
     let mut pass = String::new();
     println!("Password:");
-    io::stdin().read_line(&mut pass)
+    io::stdin()
+        .read_line(&mut pass)
         .expect("Failed to read line");
 
-    
     debug!("Password: {:?}", pass);
     let args = Some(vec![Value::String(pass.trim().to_string())]);
     let uri = URI::new("golem.password.set");
